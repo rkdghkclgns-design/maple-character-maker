@@ -1,0 +1,20 @@
+{
+  "name": "maple-character-maker",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "메이플스토리 풍 캐릭터 디자인 웹 빌더 (게임창 스타일) — React + Vite",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.7"
+  }
+}
