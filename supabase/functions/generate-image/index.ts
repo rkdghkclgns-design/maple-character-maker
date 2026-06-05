@@ -11,7 +11,7 @@
    ===================================================================== */
 
 // deno-lint-ignore-file no-explicit-any
-declare const Deno: { env: { get(k: string): string | undefined } };
+import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
