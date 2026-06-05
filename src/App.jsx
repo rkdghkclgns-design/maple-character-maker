@@ -5,10 +5,9 @@ import { IDENTITY } from "./core/transform.js";
 import { completion } from "./core/completion.js";
 import { imagePrompt, summary } from "./core/prompt.js";
 import { refine } from "./core/refine.js";
-import { generateImage } from "./core/generateImage.js";
 import { copy } from "./core/clipboard.js";
 import { exportPDF, exportHTML } from "./core/sheet.js";
-import { fileToDataURL, scaleDataURL } from "./core/image.js";
+import { fileToDataURL } from "./core/image.js";
 import { composeFramedImage } from "./core/imageCompose.js";
 
 import { usePersistentState } from "./hooks/usePersistentState.js";
@@ -42,7 +41,6 @@ export default function App() {
   const [sub, setSub] = useState("img");
   const [ai, setAi] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [generating, setGenerating] = useState(false);
   const [drag, setDrag] = useState(false);
   const fileRef = useRef(null);
   const pframeRef = useRef(null);
@@ -107,20 +105,6 @@ export default function App() {
       toast(e.message || "생성 실패");
     } finally {
       setLoading(false);
-    }
-  }
-
-  async function doGenerate() {
-    setGenerating(true);
-    try {
-      const raw = await generateImage(imgText);
-      const scaled = await scaleDataURL(raw, 900);
-      setS((p) => ({ ...p, image: scaled, imgT: { ...IDENTITY } }));
-      toast("이미지를 생성했어요 🎨");
-    } catch (e) {
-      toast(e.message || "이미지 생성 실패");
-    } finally {
-      setGenerating(false);
     }
   }
 
@@ -190,8 +174,7 @@ export default function App() {
                   imgText={imgText}
                   loreText={loreText}
                   hasImage={!!s.image}
-                  onGenerate={doGenerate}
-                  generating={generating}
+                  onCopy={doCopy}
                   onAddImage={openFile}
                 />
               )}

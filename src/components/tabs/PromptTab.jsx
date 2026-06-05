@@ -1,6 +1,6 @@
-/** 프롬프트 탭 — 이미지 프롬프트/설정 요약 토글, AI 플래그, 이미지 생성·추가 */
+/** 프롬프트 탭 — 이미지 프롬프트/설정 요약 토글, AI 플래그, 프롬프트 복사·이미지 업로드 */
 export default function PromptTab({
-  sub, setSub, ai, imgText, loreText, hasImage, onGenerate, generating, onAddImage,
+  sub, setSub, ai, imgText, loreText, hasImage, onCopy, onAddImage,
 }) {
   return (
     <div>
@@ -13,9 +13,7 @@ export default function PromptTab({
       <div className="hint">💡 ‘AI로 완성’을 누르면 빈 항목까지 상상해 멋진 프롬프트로 다듬어줘요.</div>
 
       <div className="genrow">
-        <button className="btn gen" onClick={onGenerate} disabled={generating}>
-          {generating ? (<><span className="spin"></span> 생성 중…</>) : (<>🎨 {hasImage ? "다시 생성" : "이 프롬프트로 생성하기"}</>)}
-        </button>
+        <button className="btn gen" onClick={onCopy}>📋 프롬프트 복사하기</button>
         <button className="btn g" onClick={onAddImage}>🖼 직접 업로드</button>
       </div>
 
@@ -26,7 +24,7 @@ export default function PromptTab({
         </div>
       ) : (
         <div className="genhint">
-          생성된 이미지는 왼쪽 초상화(①)에 자동 적용돼요. 외부 AI로 만든 그림은 ‘직접 업로드’로 넣을 수 있어요.
+          복사한 프롬프트로 외부 이미지 AI(미드저니·DALL·E 등)에서 그림을 만든 뒤, ‘🖼 직접 업로드’로 초상화(①)에 넣으세요.
         </div>
       )}
     </div>
