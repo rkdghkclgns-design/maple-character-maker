@@ -49,7 +49,7 @@ h1,h2,h3,.jua{font-family:'Jua',sans-serif;font-weight:400}
   background:linear-gradient(180deg,#ff9243,var(--orange) 55%,var(--orange-d));
   border-bottom:3px solid var(--wood-d);color:#fff;position:relative;
 }
-.titlebar .tleaf{font-size:22px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.2))}
+.titlebar .tlogo{height:36px;width:auto;flex:none;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.22))}
 .titlebar h1{font-size:21px;letter-spacing:.5px;text-shadow:0 2px 2px rgba(150,60,10,.4);white-space:nowrap}
 .titlebar .sub{font-family:'Gamja Flower',cursive;font-size:14px;opacity:.92;margin-left:2px}
 .tb-spacer{flex:1}
@@ -163,6 +163,15 @@ input.t::placeholder,textarea.t::placeholder{color:#cdb89a}
 .genrow .btn.gen{flex:2}
 .genrow .btn.g{flex:1}
 .genhint{font-size:11.5px;color:var(--ink-soft);margin-top:10px;line-height:1.55;background:#fbf4e6;border:1.5px dashed var(--line);border-radius:11px;padding:10px 12px}
+/* 이미지 생성 AI 바로가기 버튼 */
+.ai-launch{margin-top:12px;display:flex;align-items:center;gap:12px;width:100%;text-decoration:none;
+  background:linear-gradient(135deg,#4f8cff,#7b5cff);color:#fff;border-radius:14px;padding:13px 16px;
+  box-shadow:0 6px 16px rgba(79,108,224,.3);transition:all .15s}
+.ai-launch:hover{filter:brightness(1.07);transform:translateY(-1px);box-shadow:0 9px 22px rgba(79,108,224,.42)}
+.ai-launch .ail-ic{font-size:24px;flex:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.15))}
+.ai-launch .ail-tx{display:flex;flex-direction:column;line-height:1.25}
+.ai-launch .ail-tx b{font-family:'Jua',sans-serif;font-size:15px;letter-spacing:.2px}
+.ai-launch .ail-tx small{font-size:11.5px;opacity:.92}
 .foot-spacer{flex:1}
 .resetbtn{font-family:inherit;font-size:12px;color:var(--ink-soft);background:none;border:none;cursor:pointer;text-decoration:underline}
 .spin{width:15px;height:15px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite}

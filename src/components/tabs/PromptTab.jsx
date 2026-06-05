@@ -1,4 +1,6 @@
-/** 프롬프트 탭 — 이미지 프롬프트/설정 요약 토글, AI 플래그, 프롬프트 복사·이미지 업로드 */
+/** 프롬프트 탭 — 프롬프트 토글, AI 플래그, 복사·이미지 생성 AI 바로가기·업로드 */
+const IMAGE_AI_URL = "https://labs.google/fx/ko/tools/flow";
+
 export default function PromptTab({
   sub, setSub, ai, imgText, loreText, hasImage, onCopy, onAddImage,
 }) {
@@ -17,6 +19,14 @@ export default function PromptTab({
         <button className="btn g" onClick={onAddImage}>🖼 직접 업로드</button>
       </div>
 
+      <a className="ai-launch" href={IMAGE_AI_URL} target="_blank" rel="noopener noreferrer">
+        <span className="ail-ic">🎨</span>
+        <span className="ail-tx">
+          <b>이미지 생성 AI 바로가기</b>
+          <small>복사한 프롬프트로 Google Flow에서 그림 만들기 ↗</small>
+        </span>
+      </a>
+
       {hasImage ? (
         <div className="addimg done">
           <b>✓ 초상화(①)에 적용됨</b>
@@ -24,7 +34,7 @@ export default function PromptTab({
         </div>
       ) : (
         <div className="genhint">
-          복사한 프롬프트로 외부 이미지 AI(미드저니·DALL·E 등)에서 그림을 만든 뒤, ‘🖼 직접 업로드’로 초상화(①)에 넣으세요.
+          ① <b>프롬프트 복사</b> → ② <b>이미지 생성 AI</b>에서 그림 생성 → ③ <b>🖼 직접 업로드</b>로 초상화에 넣기
         </div>
       )}
     </div>
