@@ -60,7 +60,10 @@ async function callGemini(state: any, apiKey: string, model: string) {
 
   if (!res.ok) {
     const detail = await res.text().catch(() => "");
-    throw new Error(`Gemini ${res.status}: ${detail.slice(0, 300)}`);
+    if (res.status === 429 || /RESOURCE_EXHAUSTED|prepayment credits/i.test(detail)) {
+      throw new Error("Gemini 사용량이 소진됐어요(크레딧/쿼터 초과). Google AI Studio에서 결제·크레딧을 확인해 주세요.");
+    }
+    throw new Error(`Gemini ${res.status}: ${detail.slice(0, 200)}`);
   }
 
   const data = await res.json();
