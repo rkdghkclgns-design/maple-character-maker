@@ -1,4 +1,4 @@
-import LeafIcon from "./LeafIcon.jsx";
+import logoUrl from "../assets/maplestory-logo.png";
 import { swatchOf } from "../core/swatch.js";
 import { IDENTITY } from "../core/transform.js";
 import { useImageFraming } from "../hooks/useImageFraming.js";
@@ -53,7 +53,7 @@ export default function Portrait({
           <>
             <div className="glow" style={{ "--g": swatch }}></div>
             <div className="silho">
-              <LeafIcon />
+              <img className="silho-logo" src={logoUrl} alt="메이플스토리" />
               <button className={"dropcta" + (ai ? " nudge" : "")} onClick={onPick}>
                 <b>＋ 캐릭터 이미지 추가</b>
                 <span>프롬프트로 만든 그림을 끌어다 놓거나<br />클릭·붙여넣기(⌘V)로 업로드</span>
